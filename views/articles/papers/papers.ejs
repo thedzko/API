@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <link rel="stylesheet" href="/css/styles3.css">
+    <link rel="shortcut icon" href="/img/logos/logo b.ico" />
+</head>
+
+<body>
+    <!-- GRID CONTAINER -->
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <nav class="header-content">
+                <a href="/">
+                    <img src="./img/logos/logo.png" alt="logo" class="h-img">
+                </a>
+                <div class="content-items">
+                    <a href="/" class="items-c">News</a>
+                    <a href="/papers" class="items-c">Articles</a>
+                </div>
+            </nav>
+            <a href="/papers/new" class="b-new">
+                <!-- <span class="moodbrs-Post"></span> -->
+                <h2>NEW ARTICLE</h2>
+            </a>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- LEFT -->
+            <div class="content-left">
+                <nav class="left-content">
+                    <h2>NAVIGATION</h2>
+                    <div class="content-list">
+                        <a href="#latest" class="list">
+                            <span class="moodbrs-Articles_Latest"></span>
+                            <h2>LATEST</h2>
+                        </a>
+                        <a href="#articles" class="list">
+                            <span class="moodbrs-Articles"></span>
+                            <h2>ARTICLES</h2>
+                        </a>
+                        <a href="#authors" class="list">
+                            <span class="moodbrs-Authors"></span>
+                            <h2>AUTHORS</h2>
+                        </a>
+                        <a href="#about" class="list">
+                            <span class="moodbrs-About"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                            <h2>ABOUT</h2>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- CENTER -->
+            <div class="content-center">
+                <div class="center-content">
+                    <!-- LAST -->
+                    <h2 id="latest">LATEST</h2>
+                    <h2 id="articles">ARTICLES</h2>
+                    <!-- LATEST/ARTICLES -->
+                    <% papers.forEach(paper => { %>
+                        <div class="articles">
+                            <a href="papers/<%= paper.slug %>">
+                                <div class="card" id="1">
+                                    <img src="<%= paper.path %>" alt="" class="img">
+                                    <div>
+                                        <div class="text">
+                                            <h2><span class="text-bg"><%= paper.title %></span></h2>
+                                            <div class="author-date">
+                                                <h3 class="author">Mauricio Mercado</h3>
+                                                <h3 class="date"><span class="date-bg"><%= paper.createdAt.toLocaleDateString() %></span></h3>
+                                            </div>
+                                            <p class="description">
+                                                <%= paper.description %>
+                                            </p>
+                                            <div class="buttons">
+                                                <a href="papers/<%= paper.slug %>" class="button b-more">Read more</a>
+
+                                                <a href="papers/edit/<%= paper.id %>" class="button b-edit">Edit</a>
+
+                                                <form action="/papers/<%= paper.id %>?_method=DELETE" method="POST" class="button">
+
+                                                    <button type="submit" class="button b-delete">Delete</button>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <% }) %>
+                            <!-- AUTHORS -->
+                            <h2 id="authors">AUTHORS</h2>
+                            <div class="authors">
+                                <a href="">
+                                    <div class="card-author card-author-1">
+                                        <div class="img-author">
+                                            <img src="./img/authors/1.jpg" alt="" class="author-img">
+                                        </div>
+                                        <div class="author-card">
+                                            <h2>Stephanie Schrodinger</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card-author card-author-2">
+                                        <div class="img-author">
+                                            <img src="./img/authors/2.jpg" alt="" class="author-img">
+                                        </div>
+                                        <div class="author-card">
+                                            <h2>Mathew Markus</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card-author card-author-1">
+                                        <div class="img-author">
+                                            <img src="./img/authors/3.jpg" alt="" class="author-img">
+                                        </div>
+                                        <div class="author-card">
+
+                                            <h2>Mauricio Mercado</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card-author card-author-1">
+                                        <div class="img-author">
+                                            <img src="./img/authors/5.jpg" alt="" class="author-img">
+                                        </div>
+                                        <div class="author-card">
+
+                                            <h2>Anthony McAfee</h2>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="content-right">
+                <nav class="right-content">
+                    <h2>ARTICLES VIEWER</h2>
+                    <% papers.forEach(paper => { %>
+                        <div class="content-question">
+                            <a href="papers/<%= paper.slug %>" class="question">
+                                <%= paper.title %>
+                            </a>
+                        </div>
+                        <% }) %>
+                </nav>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-content">
+                <div class="content-1">
+                    <h2>Aztheroid</h2>
+                    <p id="about">Aztheroid is a network focused on bringing the best experience for reading space news.
+                    </p>
+                </div>
+                <div class="content-2">
+                    <h2>About us</h2>
+                    <a href="#">Join the crew</a>
+                </div>
+                <div class="content-3">
+                    <h2>Follow us</h2>
+                    <div class="icons">
+                        <a href="https://www.instagram.com/aztheroid/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCvKT92jwufIyf9nVpuBqj5g/about" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/aztheroid" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>Copyright © 2018-2025 Aztheroid Networks</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/b62423cc22.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

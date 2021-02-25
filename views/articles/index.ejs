@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aztheroid</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="/img/logos/logo b.ico" />
+</head>
+
+<body>
+    <!-- GRID CONTAINER -->
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="switch">
+                <span class="moodbrs-Light"></span>
+                <!-- <label for="toggle"></label> -->
+                <input type="checkbox" name="toggle" id="toggle" class="a-new">
+                <!-- <button class="a-new"></button> -->
+                <span class="moodbrs-Dark"></span>
+            </div>
+            <nav class="header-content">
+                <a href="/">
+                    <div class="h-img"></div>
+                </a>
+                <div class="content-items">
+                    <a href="/" class="items-c">News</a>
+                    <a href="/papers" class="items-c">Articles</a>
+                </div>
+            </nav>
+            <a href="/articles/new" class="b-new">
+                <h2>NEW POST</h2>
+            </a>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- LEFT -->
+            <div class="content-left">
+                <nav class="left-content">
+                    <h2>NAVIGATION</h2>
+                    <div class="content-list">
+                        <a href="#latest" class="list">
+                            <span class="moodbrs-News_Latest"></span>
+                            <h2>LATEST</h2>
+                        </a>
+                        <a href="#news" class="list">
+                            <span class="moodbrs-News"></span>
+                            <h2>NEWS</h2>
+                        </a>
+                        <a href="#about" class="list">
+                            <span class="moodbrs-About"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                            <h2>ABOUT</h2>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- CENTER -->
+            <div class="content-center">
+
+                <div class="center-content">
+                    <!-- LATEST/NEWS -->
+                    <h2 id="latest">LATEST</h2>
+                    <h2 id="news">NEWS</h2>
+                    <% articles.forEach(article=> { %>
+                        <div class="news">
+                            <a href="articles/<%= article.slug %>">
+                                <div class="card" id="1">
+                                    <img src="<%= article.path %>" alt="" class="img">
+                                    <div>
+                                        <div class="text">
+                                            <h2><span class="text-bg"> <%= article.title %></span></h2>
+                                            <div class="author-date">
+                                                <h3 class="author">Mauricio Mercado</h3>
+                                                <h3 class="date"><span class="date-bg"><%= article.createdAt.toLocaleDateString() %></span></h3>
+                                            </div>
+                                            <p class="description">
+                                                <%= article.description %>
+                                            </p>
+                                            <div class="buttons">
+                                                <a href="articles/<%= article.slug %>" class="button b-more">Read more</a>
+                                                <a href="articles/edit/<%= article.id %>" class="button b-edit">Edit</a>
+
+                                                <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="button">
+
+                                                    <button type="submit" class="button b-delete">Delete</button>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="content-right">
+                <nav class="right-content">
+                    <h2>NEWS VIEWER</h2>
+                    <% articles.forEach(article=> { %>
+                        <div class="content-question">
+                            <a href="articles/<%= article.slug %>" class="question">
+                                <%= article.title %>
+                            </a>
+                        </div>
+                        <% }) %>
+                </nav>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-content">
+                <div class="content-1">
+                    <h2>Aztheroid</h2>
+                    <p id="about">Aztheroid is a network focused on bringing the best experience for reading space news.
+                    </p>
+                </div>
+                <div class="content-2">
+                    <h2>About us</h2>
+                    <a href="#">Join the crew</a>
+                </div>
+                <div class="content-3">
+                    <h2>Follow us</h2>
+                    <div class="icons">
+                        <a href="https://www.instagram.com/aztheroid/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCvKT92jwufIyf9nVpuBqj5g/about" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/aztheroid" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>Copyright © 2018-2025 Aztheroid Networks</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/b62423cc22.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

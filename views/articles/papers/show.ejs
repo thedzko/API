@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reader</title>
+    <link rel="stylesheet" href="/css/styles2.css">
+    <link rel="shortcut icon" href="/img/logos/logo b.ico" />
+</head>
+
+<body>
+    <!-- GRID CONTAINER -->
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <nav class="header-content">
+                <a href="./index.html">
+                    <img src="../img/logos/logo.png" alt="logo" class="h-img">
+                </a>
+                <div class="content-items">
+                    <a href="/" class="items-c">News</a>
+                    <a href="/papers" class="items-c">Articles</a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- LEFT -->
+            <div class="content-left">
+                <nav class="left-content">
+                    <h2>NAVIGATION</h2>
+                    <div class="content-list">
+                        <a href="/" class="list">
+                            <span class="moodbrs-News"></span>
+                            <h2>NEWS</h2>
+                        </a>
+                        <a href="/papers" class="list">
+                            <span class="moodbrs-Articles"></span>
+                            <h2>ARTICLES</h2>
+                        </a>
+                        <a href="#about" class="list">
+                            <span class="moodbrs-About"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                            <h2>ABOUT</h2>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- CENTER -->
+            <div class="content-center">
+                <div class="center-content">
+                    <!-- ARTICLE -->
+                    <div class="text-t">
+                        <h1>
+                            <%= paper.title %>
+                        </h1>
+                    </div>
+                    <div class="author-date">
+                        <h3>Mauricio Mercado</h3>
+                        <h3>
+                            <%= paper.createdAt.toLocaleDateString() %>
+                        </h3>
+                    </div>
+                    <div class="cover" id="a">
+                    </div>
+
+                    <!-- TEXTO -->
+                    <div class="text-d" id="1">
+                        <div class="text">
+                            <p>
+                                <%- paper.sanitizedHtml %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="buttons">
+                        <a href="/papers" class="button b-all">All Articles</a>
+                        <a href="/papers/edit/<%= paper.id %>" class="button b-edit">Edit</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="content-right">
+                <nav class="right-content">
+                    <div class="content-question">
+                        <a href="#a" class="question">1. Launch delayed because</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-content">
+                <div class="content-1">
+                    <h2>Aztheroid</h2>
+                    <p id="about">Aztheroid is a network focused on bringing the best experience for reading space news.
+                    </p>
+                </div>
+                <div class="content-2">
+                    <h2>About us</h2>
+                    <a href="#">Join the crew</a>
+                </div>
+                <div class="content-3">
+                    <h2>Follow us</h2>
+                    <div class="icons">
+                        <a href="https://www.instagram.com/aztheroid/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCvKT92jwufIyf9nVpuBqj5g/about" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/aztheroid" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>Copyright © 2018-2025 Aztheroid Networks</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/b62423cc22.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
