@@ -2,9 +2,6 @@ const express = require('express')
 const Article = require('./../models/article')
 const router = express.Router()
 
-const path = require('path');
-const { unlink } = require('fs-extra');
-
 router.get('/new', (req, res) => {
     res.render('articles/new', { article: new Article() })
 })
@@ -34,13 +31,6 @@ router.delete('/:id', async(req, res) => {
     await Article.findByIdAndDelete(req.params.id)
     res.redirect('/')
 })
-
-router.delete('/:id', async(req, res) => {
-    const { id } = req.params;
-    const imageDeleted = await Article.findByIdAndDelete(id);
-    await unlink(path.resolve('/public' + imageDeleted.path));
-    res.redirect('/');
-});
 
 function saveArticleAndRedirect(path) {
     return async(req, res) => {

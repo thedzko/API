@@ -6,7 +6,13 @@
         <textarea required name="description" id="description" class="description" cols="30" rows="10" placeholder="Description (Required)" maxlength="121"><%= paper.description %></textarea>
     </div>
     <div class="form-group g-author">
-        <textarea required name="author" id="author" class="author" cols="30" rows="10" placeholder="Author (Required)" maxlength="30"><%= paper.author %></textarea>
+        <input list="authors" value="<%= paper.author %>" required type="text" name="author" id="author" class="author" maxlength="30" placeholder="Author (Required)">
+        <datalist id="authors">
+            <option value="Derek Multer"></option>
+            <option value="Joe Hanson"></option>
+            <option value="Mauricio Mercado"></option>
+            <option value="Neil DeGrasse Tyson"></option>
+        </datalist>
     </div>
 </div>
 

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     border: 0;
@@ -9,7 +11,7 @@
 }
 
 body {
-    --logo: url(/img/logos/logo.png);
+    --logo: url(/img/logos/logo.svg);
     font-family: "Open Sans";
     position: absolute;
     perspective: 1px;
@@ -53,7 +55,7 @@ body {
 
 .content-items {
     display: flex;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
     list-style: none;
 }
@@ -111,6 +113,18 @@ textarea {
     width: 920px;
 }
 
+input {
+    font-family: "Open Sans", sans-serif;
+    resize: none;
+    outline: none;
+    overflow: visible;
+    border: #A3A3A3 1px solid;
+    text-align: center;
+    background-color: #F3F3F3;
+    width: 920px;
+    outline: none;
+}
+
 .g-tide {
     width: 920px;
     display: flex;
@@ -140,7 +154,7 @@ textarea {
 
 .title {
     padding-top: 4px;
-    font-size: 18px;
+    font-size: 1.125rem;
     margin-top: 60px;
     padding-left: 12px;
     text-align: start;
@@ -151,7 +165,7 @@ textarea {
 }
 
 .description {
-    font-size: 18px;
+    font-size: 1.125rem;
     padding-top: 9px;
     padding-left: 12px;
     text-align: start;
@@ -160,8 +174,8 @@ textarea {
 }
 
 .author {
-    font-size: 18px;
-    padding-top: 9px;
+    font-size: 1.125rem;
+    padding-top: 2px;
     padding-left: 12px;
     text-align: start;
     height: 45px;
@@ -188,7 +202,7 @@ textarea {
 .image::before {
     content: 'SELECT COVER IMAGE';
     color: #A3A3A3;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: .8px;
     cursor: pointer;
@@ -202,17 +216,13 @@ textarea {
     transition: .5s;
 }
 
-.image:active {
-    outline: 0;
-}
-
 .markdown {
     margin-top: 8px;
     width: 920px;
 }
 
-input {
-    outline: none;
+.image:active {
+    outline: 0;
 }
 
 
@@ -226,7 +236,7 @@ input {
     color: #3035e8;
 }
 
-.title:focus {
+input:focus {
     background-color: white;
     border-bottom: #3035e8 2px solid;
 }
