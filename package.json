@@ -1,25 +1,29 @@
 {
-    "name": "NODEBLOG",
+    "name": "MOONDEBRIS",
     "version": "1.0.0",
-    "description": "",
+    "description": "A thoughtful designed newsletter focused on user experience and content quality.",
     "main": "index.js",
     "scripts": {
         "devStart": "nodemon server.js"
     },
     "keywords": [],
-    "author": "",
+    "homepage": "https://github.com/NextStepWebs/simplemde-markdown-editor",
+    "author": "Mauricio Mercado",
     "license": "ISC",
     "dependencies": {
+        "codemirror": "^5.59.4",
+        "codemirror-spell-checker": "^1.1.2",
         "dompurify": "^2.2.6",
         "ejs": "^3.1.5",
         "express": "^4.17.1",
         "fs-extra": "^9.1.0",
         "jsdom": "^16.4.0",
-        "marked": "^1.2.8",
+        "marked": "^1.2.9",
         "method-override": "^3.0.0",
         "mongoose": "^5.11.14",
         "morgan": "^1.10.0",
         "multer": "^1.4.2",
+        "simplemde": "^1.11.2",
         "slugify": "^1.4.6",
         "uuid": "^3.4.0"
     },

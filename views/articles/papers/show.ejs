@@ -7,6 +7,7 @@
     <title>Reader</title>
     <link rel="stylesheet" href="/css/styles2.css">
     <link rel="shortcut icon" href="/img/logos/logo b.ico" />
+    <script src="/js/script.js" defer></script>
 </head>
 
 <body>
@@ -14,13 +15,18 @@
     <div class="container">
         <!-- HEADER -->
         <div class="header">
+            <div class="switch">
+                <span class="moodbrs-Light"></span>
+                <input type="checkbox" name="toggle" id="toggle" class="a-new">
+                <span class="moodbrs-Dark"></span>
+            </div>
             <nav class="header-content">
-                <a href="./index.html">
-                    <img src="../img/logos/logo.png" alt="logo" class="h-img">
+                <a href="/">
+                    <div class="h-img"></div>
                 </a>
                 <div class="content-items">
                     <a href="/" class="items-c">News</a>
-                    <a href="/papers" class="items-c">Articles</a>
+                    <a href="/papers" class="items-c on">Articles</a>
                 </div>
             </nav>
         </div>
@@ -32,12 +38,12 @@
             <div class="content-left">
                 <nav class="left-content">
                     <h2>NAVIGATION</h2>
-                    <div class="content-list">
+                    <div class="content-list" id="container">
                         <a href="/" class="list">
                             <span class="moodbrs-News"></span>
                             <h2>NEWS</h2>
                         </a>
-                        <a href="/papers" class="list">
+                        <a href="/papers" class="list active">
                             <span class="moodbrs-Articles"></span>
                             <h2>ARTICLES</h2>
                         </a>
@@ -59,12 +65,15 @@
                         </h1>
                     </div>
                     <div class="author-date">
-                        <h3>Mauricio Mercado</h3>
+                        <h3>
+                            <%= paper.author %>
+                        </h3>
                         <h3>
                             <%= paper.createdAt.toLocaleDateString() %>
                         </h3>
                     </div>
-                    <div class="cover" id="a">
+                    <div class="cover">
+                        <img src="<%= paper.path %>" alt="">
                     </div>
 
                     <!-- TEXTO -->
@@ -87,8 +96,12 @@
             <!-- RIGHT -->
             <div class="content-right">
                 <nav class="right-content">
+
+                    <h2>NAVIGATION</h2>
                     <div class="content-question">
-                        <a href="#a" class="question">1. Launch delayed because</a>
+                        <a href="#a" class="question">
+
+                        </a>
                     </div>
                 </nav>
             </div>

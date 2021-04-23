@@ -35,7 +35,7 @@ router.delete('/:id', async(req, res) => {
     res.redirect('/')
 })
 
-router.get('/articles/:id/delete', async(req, res) => {
+router.delete('/:id', async(req, res) => {
     const { id } = req.params;
     const imageDeleted = await Article.findByIdAndDelete(id);
     await unlink(path.resolve('/public' + imageDeleted.path));
@@ -47,6 +47,7 @@ function saveArticleAndRedirect(path) {
         let article = req.article
         article.title = req.body.title
         article.description = req.body.description
+        article.author = req.body.author
         article.markdown = req.body.markdown
         article.filename = req.file.filename;
         article.path = '/img/uploads/' + req.file.filename;

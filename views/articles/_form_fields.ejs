@@ -1,23 +1,21 @@
 <div class="g-tide">
-
     <div class="form-group g-title">
-        <label for="title">1. TITLE</label>
         <input required value="<%= article.title %>" type="text" name="title" id="title" class="title" maxlength="58" placeholder="Title (Required)">
     </div>
     <div class="form-group g-description">
-        <label for="title">2. DESCRIPTION</label>
         <textarea required name="description" id="description" class="description" cols="30" rows="10" placeholder="Description (Required)" maxlength="121"><%= article.description %></textarea>
     </div>
-
+    <div class="form-group g-author">
+        <textarea required name="author" id="author" class="author" cols="30" rows="10" placeholder="Author (Required)" maxlength="30"><%= article.author %></textarea>
+    </div>
 </div>
 
-<div class="form-group g-markdown">
-    <label for="markdown">3. MARKDOWN</label>
-    <textarea required name="markdown" id="markdown" class="markdown" cols="30" rows="10" placeholder="Text (Required)"><%= article.markdown %></textarea>
+<div class="markdown">
+    <textarea name="markdown" id="markdown" cols="30" rows="10"><%= article.markdown %></textarea>
 </div>
 
 <div class="form-group g-image">
-    <input type="file" value="<%= article.path %>" name="image" class="image" id="image">
+    <input type="file" required value="<%= article.path %>" name="image" class="image" id="image">
 </div>
 
 <div class="form-group group-buttons">

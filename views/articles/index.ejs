@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aztheroid</title>
-    <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="/img/logos/logo b.ico" />
+    <script src="/js/script.js" defer></script>
 </head>
 
 <body>
@@ -17,9 +17,7 @@
         <div class="header">
             <div class="switch">
                 <span class="moodbrs-Light"></span>
-                <!-- <label for="toggle"></label> -->
                 <input type="checkbox" name="toggle" id="toggle" class="a-new">
-                <!-- <button class="a-new"></button> -->
                 <span class="moodbrs-Dark"></span>
             </div>
             <nav class="header-content">
@@ -27,7 +25,7 @@
                     <div class="h-img"></div>
                 </a>
                 <div class="content-items">
-                    <a href="/" class="items-c">News</a>
+                    <a href="/" class="items-c on">News</a>
                     <a href="/papers" class="items-c">Articles</a>
                 </div>
             </nav>
@@ -43,8 +41,8 @@
             <div class="content-left">
                 <nav class="left-content">
                     <h2>NAVIGATION</h2>
-                    <div class="content-list">
-                        <a href="#latest" class="list">
+                    <div class="content-list" id="container">
+                        <a href="#latest" class="list active">
                             <span class="moodbrs-News_Latest"></span>
                             <h2>LATEST</h2>
                         </a>
@@ -76,7 +74,9 @@
                                         <div class="text">
                                             <h2><span class="text-bg"> <%= article.title %></span></h2>
                                             <div class="author-date">
-                                                <h3 class="author">Mauricio Mercado</h3>
+                                                <h3 class="author">
+                                                    <%= article.author %>
+                                                </h3>
                                                 <h3 class="date"><span class="date-bg"><%= article.createdAt.toLocaleDateString() %></span></h3>
                                             </div>
                                             <p class="description">

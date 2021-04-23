@@ -14,6 +14,10 @@ const paperSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    author: {
+        type: String,
+        required: true
+    },
     markdown: {
         type: String,
         required: true

@@ -9,6 +9,7 @@
 }
 
 body {
+    --logo: url(/img/logos/logo.png);
     font-family: "Open Sans";
     position: absolute;
     perspective: 1px;
@@ -69,9 +70,11 @@ body {
 }
 
 .h-img {
-    width: 20%;
-    height: auto;
-    image-rendering: optimizeSpeed;
+    height: 80px;
+    width: 145px;
+    background: var(--logo) no-repeat;
+    background-position: center center;
+    background-size: 88%;
 }
 
 
@@ -91,32 +94,19 @@ body {
 }
 
 .form-group {
-    margin-top: 26px;
     width: 920px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-label {
-    background: black;
-    color: white;
-    align-self: center;
-    padding: 0 8px 0 8px;
-    letter-spacing: .8px;
-    font-size: 18px;
-    text-align: center;
-    font-weight: 800;
-}
-
 textarea {
-    resize: vertical;
+    font-family: "Open Sans", sans-serif;
+    resize: none;
     outline: none;
     overflow: visible;
     border: #A3A3A3 1px solid;
-    font-size: 14px;
     text-align: center;
-    margin-top: 26px;
     background-color: #F3F3F3;
     width: 920px;
 }
@@ -124,49 +114,71 @@ textarea {
 .g-tide {
     width: 920px;
     display: flex;
+    flex-wrap: wrap;
     overflow: hidden;
 }
 
 .g-title {
-    width: 460px;
+    width: 920px;
 }
 
 .g-description {
-    width: 460px;
+    margin-top: 8px;
+    width: 920px;
+}
+
+.g-author {
+    margin-top: 8px;
+    width: 920px;
 }
 
 .g-image {
+    margin-top: 8px;
     width: 460px;
     border-radius: 4px;
 }
 
 .title {
-    font-size: 15px;
-    font-weight: 700;
-    text-align: center;
-    margin-top: 26px;
+    padding-top: 4px;
+    font-size: 18px;
+    margin-top: 60px;
+    padding-left: 12px;
+    text-align: start;
     height: 45px;
     border: #A3A3A3 1px solid;
     background-color: #F3F3F3;
-    width: 460px;
+    width: 920px;
 }
 
 .description {
-    padding-top: 11.25px;
-    display: flex;
-    align-items: center;
+    font-size: 18px;
+    padding-top: 9px;
+    padding-left: 12px;
+    text-align: start;
     height: 45px;
-    width: 460px;
+    width: 920px;
+}
+
+.author {
+    font-size: 18px;
+    padding-top: 9px;
+    padding-left: 12px;
+    text-align: start;
+    height: 45px;
+    width: 920px;
 }
 
 .image {
+    margin-top: 8px;
     align-items: center;
     width: 460px;
     height: 45px;
     background-color: transparent;
     color: transparent;
     position: relative;
+    border: #A3A3A3 1px dashed;
     border-radius: 4px;
+    transition: .5s;
 }
 
 .image::-webkit-file-upload-button {
@@ -174,13 +186,12 @@ textarea {
 }
 
 .image::before {
-    content: '4. SELECT COVER IMAGE';
-    color: white;
+    content: 'SELECT COVER IMAGE';
+    color: #A3A3A3;
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: .8px;
     cursor: pointer;
-    background: black;
     border-radius: 4px;
     padding-top: 10px;
     font-family: "Open Sans", sans-serif;
@@ -196,29 +207,40 @@ textarea {
 }
 
 .markdown {
-    padding: 12px;
-    font-size: 16px;
-    height: 450px;
-    resize: vertical;
-    overflow: visible;
-    text-align: start;
+    margin-top: 8px;
+    width: 920px;
+}
+
+input {
+    outline: none;
 }
 
 
 /* HOVER EFFECTS */
 
-input:focus {
+.image:hover {
+    border: #3035e8 1px dashed;
+}
+
+.image:hover::before {
+    color: #3035e8;
+}
+
+.title:focus {
     background-color: white;
+    border-bottom: #3035e8 2px solid;
 }
 
 textarea:focus {
     background-color: white;
+    border-bottom: #3035e8 2px solid;
 }
 
 
 /* BUTTONS */
 
 .group-buttons {
+    margin: 32px 0 48px 0;
     display: flex;
 }
 

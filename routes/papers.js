@@ -2,6 +2,9 @@ const express = require('express')
 const Paper = require('./../models/paper')
 const router = express.Router()
 
+const path = require('path');
+const { unlink } = require('fs-extra');
+
 // NEW
 router.get('/new', (req, res) => {
     res.render('articles/papers/new', { paper: new Paper() })
@@ -38,11 +41,19 @@ router.delete('/:id', async(req, res) => {
     res.redirect('/papers')
 })
 
+router.get('/articles/:id/delete', async(req, res) => {
+    const { id } = req.params;
+    const imageDeleted = await Article.findByIdAndDelete(id);
+    await unlink(path.resolve('/public' + imageDeleted.path));
+    res.redirect('/');
+});
+
 function saveArticleAndRedirect(path) {
     return async(req, res) => {
         let paper = req.paper
         paper.title = req.body.title
         paper.description = req.body.description
+        paper.author = req.body.author
         paper.markdown = req.body.markdown
         paper.filename = req.file.filename;
         paper.path = '/img/uploads/' + req.file.filename;
